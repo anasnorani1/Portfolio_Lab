@@ -1,0 +1,553 @@
+/* =========================================================
+   Anas Norani — Personal Portfolio
+   CS313 Web Engineering — Lab 3: HTML Advanced (Portfolio II)
+   Single external stylesheet shared by every page.
+   Uses float + clear for the nav bar, the hero layout,
+   and the image gallery, as required by the lab.
+   No JavaScript. No CSS framework/API — pure hand-written CSS.
+   ========================================================= */
+
+/* ---------- Reset & base ---------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background-color: #0a0b12;
+  color: #eef0f7;
+  line-height: 1.65;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Generic clearfix utility — used after every floated block
+   so parent containers don't collapse to zero height. */
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Header & horizontal nav (float-based) ---------- */
+header {
+  background-color: #12131e;
+  padding: 18px 44px;
+  border-bottom: 3px solid #8b5cf6;
+}
+
+header .brand {
+  float: left;
+  font-size: 20px;
+  font-weight: bold;
+  color: #8b5cf6;
+  padding-top: 6px;
+}
+
+nav {
+  float: right;
+}
+
+nav ul li {
+  float: left;           /* horizontal nav links via float */
+  margin-left: 6px;
+}
+
+nav ul li a {
+  display: block;
+  color: #c8cbe6;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 6px;
+}
+
+nav ul li a:hover {
+  background-color: #1c1f30;
+  color: #ffffff;
+}
+
+nav ul li a.active {
+  background-color: #8b5cf6;
+  color: #ffffff;
+}
+
+/* clear the float so the header doesn't collapse */
+header::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Hero section (float image + text) ---------- */
+.hero {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 60px 44px;
+}
+
+.hero img.profile-photo {
+  float: left;
+  width: 230px;
+  height: 230px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 4px solid #8b5cf6;
+  margin-right: 40px;
+  margin-bottom: 20px;
+}
+
+.hero .hero-text {
+  overflow: hidden;   /* keeps text from wrapping under the float oddly on narrow content */
+}
+
+.hero .eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #22d3ee;
+  border: 1px solid #22d3ee;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+.hero h2 {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+.hero p.tagline {
+  color: #22d3ee;
+  font-weight: bold;
+  font-size: 16px;
+  margin-bottom: 14px;
+}
+
+.hero p.desc {
+  color: #9a9dbd;
+  margin-bottom: 22px;
+  font-size: 15px;
+}
+
+.btn {
+  display: inline-block;
+  background-color: #8b5cf6;
+  color: #ffffff;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.btn:hover {
+  background-color: #7040e0;
+}
+
+/* clear the floated photo before the next section starts */
+.hero::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- "What I do" cards ---------- */
+section.about {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 10px 44px 80px;
+}
+
+section.about h3 {
+  color: #ffffff;
+  font-size: 22px;
+  text-align: center;
+  margin-bottom: 26px;
+}
+
+.card {
+  float: left;
+  width: 31.33%;
+  margin-right: 3%;
+  margin-bottom: 20px;
+  background-color: #161826;
+  border: 1px solid #272a3d;
+  border-radius: 12px;
+  padding: 22px 20px;
+}
+
+.card:nth-child(3n) {
+  margin-right: 0;
+}
+
+.card .emoji {
+  font-size: 24px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.card h4 {
+  color: #ffffff;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.card p {
+  color: #9a9dbd;
+  font-size: 13.5px;
+}
+
+.cards-wrap::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Page header block (used on inner pages) ---------- */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 44px 90px;
+}
+
+main .eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #22d3ee;
+  border: 1px solid #22d3ee;
+  padding: 4px 10px;
+  border-radius: 20px;
+  margin-bottom: 14px;
+}
+
+main h2 {
+  font-size: 30px;
+  color: #ffffff;
+  margin-bottom: 8px;
+}
+
+main p.sub {
+  color: #9a9dbd;
+  margin-bottom: 40px;
+  font-size: 15px;
+}
+
+/* ---------- Skills page ---------- */
+.skill-group {
+  margin-bottom: 36px;
+}
+
+.skill-group h3 {
+  color: #ffffff;
+  font-size: 18px;
+  margin-bottom: 18px;
+  border-left: 4px solid #8b5cf6;
+  padding-left: 10px;
+}
+
+.bar-item {
+  margin-bottom: 16px;
+}
+
+.bar-label {
+  overflow: hidden;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.bar-label .pct {
+  float: right;
+  color: #22d3ee;
+}
+
+.bar-bg {
+  background-color: #1c1f30;
+  border: 1px solid #272a3d;
+  border-radius: 8px;
+  height: 12px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  background-color: #8b5cf6;
+  height: 100%;
+}
+
+/* Width utility classes for skill bars — avoids inline style="width:.." */
+.w-90 { width: 90%; }
+.w-88 { width: 88%; }
+.w-85 { width: 85%; }
+.w-78 { width: 78%; }
+.w-75 { width: 75%; }
+
+.tag {
+  float: left;
+  background-color: #161826;
+  border: 1px solid #8b5cf6;
+  color: #c8cbe6;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.tag-row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Hobbies page ---------- */
+.hobby-card {
+  float: left;
+  width: 47%;
+  margin-right: 3%;
+  margin-bottom: 20px;
+  background-color: #161826;
+  border: 1px solid #272a3d;
+  border-radius: 12px;
+  padding: 24px 22px;
+}
+
+.hobby-card:nth-child(2n) {
+  margin-right: 0;
+}
+
+.hobby-card .icon {
+  font-size: 26px;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.hobby-card h3 {
+  color: #ffffff;
+  font-size: 17px;
+  margin-bottom: 8px;
+}
+
+.hobby-card p {
+  color: #9a9dbd;
+  font-size: 14px;
+}
+
+.hobby-grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Image gallery (float + clear as required) ---------- */
+.gallery figure {
+  float: left;
+  width: 31.33%;
+  margin-right: 3%;
+  margin-bottom: 22px;
+  background-color: #161826;
+  border: 1px solid #272a3d;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.gallery figure:nth-child(3n) {
+  margin-right: 0;
+}
+
+.gallery figure img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+}
+
+.gallery figcaption {
+  padding: 14px 16px;
+  font-size: 13.5px;
+  font-weight: 600;
+}
+
+.gallery figcaption span {
+  display: block;
+  color: #9a9dbd;
+  font-weight: normal;
+  font-size: 12px;
+  margin-top: 3px;
+}
+
+/* clearfix so the gallery container wraps its floated figures */
+.gallery::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* ---------- Contact page ---------- */
+.contact-card {
+  float: left;
+  width: 22%;
+  margin-right: 4%;
+  margin-bottom: 20px;
+  background-color: #161826;
+  border: 1px solid #272a3d;
+  border-radius: 12px;
+  padding: 20px 14px;
+  text-align: center;
+}
+
+.contact-card:nth-child(4n) {
+  margin-right: 0;
+}
+
+.contact-card .icon {
+  font-size: 22px;
+  margin-bottom: 10px;
+}
+
+.contact-card h3 {
+  color: #ffffff;
+  font-size: 13.5px;
+  margin-bottom: 6px;
+}
+
+.contact-card a,
+.contact-card span.value {
+  color: #22d3ee;
+  font-size: 12.5px;
+  font-weight: 600;
+  word-break: break-word;
+}
+
+.contact-grid {
+  margin-bottom: 40px;
+}
+
+.contact-grid::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+form {
+  background-color: #161826;
+  border: 1px solid #272a3d;
+  border-radius: 12px;
+  padding: 32px;
+}
+
+form h3 {
+  color: #ffffff;
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #9a9dbd;
+  font-weight: 600;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 11px 13px;
+  margin-bottom: 18px;
+  border-radius: 8px;
+  border: 1px solid #272a3d;
+  background-color: #0a0b12;
+  color: #eef0f7;
+  font-family: inherit;
+  font-size: 14px;
+}
+
+textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+button {
+  background-color: #8b5cf6;
+  color: #ffffff;
+  border: none;
+  padding: 12px 26px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #7040e0;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  text-align: center;
+  padding: 26px;
+  background-color: #12131e;
+  border-top: 1px solid #272a3d;
+  color: #9a9dbd;
+  font-size: 13px;
+}
+
+/* ---------- Responsive: undo floats on small screens ---------- */
+@media (max-width: 720px) {
+  header .brand {
+    float: none;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    float: none;
+  }
+
+  nav ul li {
+    float: none;
+  }
+
+  nav ul {
+    text-align: center;
+  }
+
+  nav ul li {
+    display: inline-block;
+    float: none;
+  }
+
+  .hero img.profile-photo {
+    float: none;
+    display: block;
+    margin: 0 auto 24px;
+  }
+
+  .card,
+  .hobby-card,
+  .gallery figure,
+  .contact-card {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+  }
+}
